@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Define variables
+CONFIG_FILE="$HOME/.ssh/config"
+KEY_FILE="$HOME/.ssh/school"
+SERVER_ALIAS="6225-web-01"
+SERVER_ADDRESS="172.17.255.255"
+
+# Create the .ssh directory if it doesn't exist
+mkdir -p $HOME/.ssh
+
+# Create or overwrite the SSH config file
+cat <<EOL > $CONFIG_FILE
+Host $SERVER_ALIAS
+    HostName $SERVER_ADDRESS
+    User ubuntu
+    IdentityFile $KEY_FILE
+    PasswordAuthentication no
+EOL
+
+# Set the correct permissions for the SSH config file
+chmod 600 $CONFIG_FILE
+
+echo "SSH client configuration has been updated."
