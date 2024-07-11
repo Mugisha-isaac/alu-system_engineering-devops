@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # Define the file name for the key pair
-KEY_NAME="school"
+KEY_NAME="$HOME/.ssh/school"
 # Define the passphrase
 PASSPHRASE="betty"
 # Create the RSA key pair with 4096 bits and the specified passphrase
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/$KEY_NAME -N "$PASSPHRASE"
+ssh-keygen -t rsa -b 4096 -f $KEY_NAME -N "$PASSPHRASE"
+# Ensure the file was created
+if [ -f "$KEY_NAME" ]; then
+    echo "RSA private key created successfully: $KEY_NAME"
+else
+    echo "Error: Failed to create RSA private key."
+    exit 1
+fi
