@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the server address
 SERVER_ADDRESS="172.17.255.255"
