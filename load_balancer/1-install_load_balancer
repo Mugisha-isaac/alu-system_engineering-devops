@@ -16,8 +16,8 @@ frontend isaac-frontend
         default_backend isaac-backend
 backend isaac-backend
         balance roundrobin
-        server 6238-web-01 54.196.216.8:80 check
-        server 6238-web-02 98.80.15.59:80 check
+        server 6225-web-01 50.17.135.162:80 check
+        server 6225-web-02 107.22.62.64:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
