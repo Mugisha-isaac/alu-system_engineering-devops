@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+docker run -p 8080:80 -d -it holbertonschool/265-0
+docker ps
+docker exec -it <container_id> /bin/bash
+service apache2 start
+echo "Hello Holberton" > /var/www/html/index.html
+service apache2 restart
