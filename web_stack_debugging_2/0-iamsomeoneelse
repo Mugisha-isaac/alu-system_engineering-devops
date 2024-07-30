@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Check if the script received exactly one argument
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <username>"
+  exit 1
+fi
+USERNAME=$1
+su -c "whoami" $USERNAME
